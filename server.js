@@ -58,7 +58,7 @@ app.use(express.static(__dirname + '/'));
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
-app.get('/Lists/:query', cors(), function (req, res) {
+app.get('/Lists/:query/', cors(), function (req, res) {
     var query = req.params.query;
     Model.find({
         'category': query
