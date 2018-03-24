@@ -16,7 +16,12 @@ app.controller("MainController", function ($scope, $http) {
         $scope.categories = response.data;
     });
 
+    $scope.logemail;
+
     $scope.plusImage = "\\resources\\plus.png";
+    $scope.likeIcon = "\\resources\\facebook-like-icon.png";
+    $scope.addIcon = "\\resources\\add-event-icon.png";
+    $scope.favoriteIcon = "\\resources\\Button-Favorite-icon.png";
     $scope.plusModal = "#newList";
     $scope.userInputtedList = {
         "name": "",
@@ -56,17 +61,17 @@ app.controller("MainController", function ($scope, $http) {
     }
 
 
-    $(document).keyup(function(e) {
+    $(document).keyup(function (e) { //New list reset when pressing esc
         if (e.keyCode == 27) { // escape key maps to keycode `27`
-        $scope.userInputtedList = {
-            "name": "",
-            "category": "",
-            "items": [],
-            "uses": 0
-        };
-        $scope.newListItem = "";
-       }
-   });
+            $scope.userInputtedList = {
+                "name": "",
+                "category": "",
+                "items": [],
+                "uses": 0
+            };
+            $scope.newListItem = "";
+        }
+    });
 
     $scope.addListToDB = function () {
         $http.post('/addList/', $scope.userInputtedList)
@@ -84,17 +89,34 @@ app.controller("MainController", function ($scope, $http) {
         $scope.newListItem = "";
     };
 
-
-    // var trying = { "items": ["2", "כdfbdfי"], "name": "נסיון", "category": "other", "uses": 3 };
+    $scope.addListToFavorites = function (list) { //Working Progress
+        $http.post('/favorite/', list.$scope.logemail)
+            .then(
+            function (response) {
+                console.log(response);
+            }
+            );
+        $scope.userInputtedList = {
+            "name": "",
+            "category": "",
+            "items": [],
+            "uses": 0
+        };
+        $scope.newListItem = "";
+    };
+    // var trying = { "items": ["2", "כdfbdfי"], "name": "נסיון", "category": "other", "uses": 3 }; //Tests
     // $http.post('/updateList/', trying)
     //     .then(
     //     function (response) {
     //     }
     //     );
-    // $http.post('/boom/', trying)
-    //     .then(
-    //     function (response) {
-    //     }
-    //     );
+    $scope.boom = function (list) {
+        $http.post('/boom/', list)
+            .then(
+            function (response) {
+            }
+            );
+    }
+
 });
 

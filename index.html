@@ -49,7 +49,7 @@
 
     <div class="col s3">
       <div class="card-image">
-        <img src={{plusImage}}>
+        <img src={{addIcon}}>
       </div>
       <div class="card-content">
         <p>הוספת רשימה</p>
@@ -64,8 +64,9 @@
         <h4 class="center-align">קניות</h4>
         <ul class="collapsible popout" data-collapsible="accordion" dir="rtl">
           <li ng-repeat="shoppinglist in shoppingLists">
-            <div class="collapsible-header">
+            <div class="collapsible-header" class="row">
               <i class="material-icons">done_all</i>{{shoppinglist.name}}</div>
+              <img src={{likeIcon}} ng-click="boom(shoppinglist)">
             <div class="collapsible-body valign-wrapper right-align" style="padding-top:0;padding-bottom:0;">
               <ul class="collection collection-width">
                 <li class="collection-item" ng-repeat="shoppingitem in shoppinglist.items">
@@ -74,6 +75,7 @@
                 </li>
               </ul>
             </div>
+            
           </li>
         </ul>
       </div>
@@ -200,7 +202,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
-  <script type="text/javascript" src="lists.js"></script>
+  <script type="text/javascript" src="index.js"></script>
 </body>
 
 </html>
