@@ -54,9 +54,14 @@ mongoose.connect('mongodb://todobomdb.documents.azure.com:10255/ToDoBom?ssl=true
 mongoose.Promise = global.Promise;
 
 app.use(express.static(__dirname + '/'));
-// viewed at http://localhost:8080
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
+});
+app.get('/tos', function (req, res) {
+    res.sendFile(path.join(__dirname + '/tos.html'));
+});
+app.get('/pp', function (req, res) {
+    res.sendFile(path.join(__dirname + '/pp.html'));
 });
 app.get('/Lists/:query', cors(), function (req, res) {
     var query = req.params.query;
