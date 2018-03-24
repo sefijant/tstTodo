@@ -85,16 +85,16 @@ app.controller("MainController", function ($scope, $http) {
     };
 
 
-    var trying = { "items": ["2", "כdfbdfי"], "name": "נסיון", "category": "other", "uses": 3 };
-    $http.post('/updateList/', trying)
-        .then(
-        function (response) {
-        }
-        );
-    $http.post('/boom/', trying)
-        .then(
-        function (response) {
-        }
-        );
+    // var trying = { "items": ["2", "כdfbdfי"], "name": "נסיון", "category": "other", "uses": 3 };
+    // $http.post('/updateList/', trying)
+    //     .then(
+    //     function (response) {
+    //     }
+    //     );
+    // $http.post('/boom/', trying)
+    //     .then(
+    //     function (response) {
+    //     }
+    //     );
 });
 
